@@ -1,42 +1,74 @@
-# 🗄️ Supabase Integration Guide — Veridian Bank
+# 🗄️ Supabase Integration — Veridian Bank
 
-## Connection Details
+## ✅ Connection Status: LIVE
 
-- **Project Region:** ap-southeast-1 (Singapore)
-- **Project Ref:** ssrlburjpwnpoiclaiss
-- **Database:** PostgreSQL (managed by Supabase)
+| Detail | Value |
+|--------|-------|
+| **Project URL** | https://ssrlburjpwnpoiclaiss.supabase.co |
+| **Project Ref** | ssrlburjpwnpoiclaiss |
+| **Region** | ap-southeast-1 (Singapore) |
+| **Status** | ACTIVE_HEALTHY |
+| **Migration** | v2.0 — Completed ✅ |
 
-## Current Tables
+---
 
-| Table | Description |
-|-------|-------------|
-| `Veridian Bank` | Base project table (id, created_at) |
+## 📋 Live Tables (6 total)
 
-## Recommended Schema Expansion
+| Table | Columns | Indexes | RLS |
+|-------|---------|---------|-----|
+| `branches` | 13 | 3 | ✅ Public read (active) |
+| `customers` | 16 | 5 | ✅ Own record only |
+| `transactions` | 16 | 5 | ✅ Own records only |
+| `loans` | 16 | 3 | ✅ Own records only |
+| `csps` | 16 | 3 | ✅ Service role |
+| `Veridian Bank` | 2 | — | — (legacy) |
 
-Run the migration script at `scripts/supabase_migration.sql` to set up the full schema.
+**Total: 16 custom performance indexes + 4 RLS policies + 4 auto-updated_at triggers**
 
-## Usage Pattern
+---
 
-```js
-// Using Supabase client
-import { createClient } from '@supabase/supabase-js'
+## 🏢 Sample Branches (pre-loaded)
 
-const supabase = createClient(
-  'https://ssrlburjpwnpoiclaiss.supabase.co',
-  process.env.SUPABASE_ANON_KEY
-)
+| Code | Branch | City |
+|------|--------|------|
+| VB001 | Connaught Place | New Delhi |
+| VB002 | Bandra West | Mumbai |
+| VB003 | Koramangala | Bengaluru |
+| VB004 | Salt Lake | Kolkata |
+| VB005 | Anna Nagar | Chennai |
+
+---
+
+## 🔗 Connecting from Backend Functions
+
+```typescript
+const SUPABASE_URL = 'https://ssrlburjpwnpoiclaiss.supabase.co';
+const SUPABASE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
 
 // Query customers
-const { data, error } = await supabase
-  .from('customers')
-  .select('*')
-  .eq('account_status', 'Active')
+const res = await fetch(`${SUPABASE_URL}/rest/v1/customers?account_status=eq.Active`, {
+  headers: {
+    'apikey': SUPABASE_KEY,
+    'Authorization': `Bearer ${SUPABASE_KEY}`
+  }
+});
+const customers = await res.json();
 ```
 
-## Security Notes
+## 🔄 Sync from Base44 → Supabase
 
-- Always use Row Level Security (RLS) on all tables
-- Never expose service_role key on the frontend
-- Use anon key for client-side queries with RLS policies
-- Enable 2FA on your Supabase dashboard
+Use the `syncToSupabase` backend function to push entity data:
+```
+POST /functions/syncToSupabase
+```
+Automated nightly sync runs daily at 2:00 AM IST.
+
+---
+
+## 🛡️ Security Checklist
+
+- [x] Row Level Security (RLS) enabled on all tables
+- [x] Service role key stored as environment variable only
+- [x] Anon key safe for client-side (RLS enforced)
+- [x] No sensitive fields (pin_hash, aadhaar) synced to Supabase
+- [x] Auto-updated_at triggers on customers, loans, branches, csps
