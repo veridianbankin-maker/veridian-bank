@@ -1,0 +1,21 @@
+{
+  "entity": "Transaction",
+  "description": "All financial transactions with complete audit trail",
+  "fields": {
+    "transaction_id": { "type": "string", "description": "Unique transaction reference" },
+    "customer_id": { "type": "string", "description": "Customer who initiated the transaction" },
+    "account_number": { "type": "string", "description": "Source account number" },
+    "transaction_type": { "type": "string", "enum": ["Credit", "Debit", "Transfer", "Bill Payment", "EMI", "Withdrawal", "Deposit"], "description": "Type of transaction" },
+    "amount": { "type": "number", "description": "Transaction amount (INR)" },
+    "balance_after": { "type": "number", "description": "Account balance after transaction" },
+    "recipient_account": { "type": "string", "description": "Beneficiary account number (for transfers)" },
+    "recipient_name": { "type": "string", "description": "Beneficiary name" },
+    "transfer_mode": { "type": "string", "enum": ["NEFT", "RTGS", "IMPS", "UPI", "NACH", "Internal"], "description": "Transfer mode" },
+    "description": { "type": "string", "description": "Transaction narration" },
+    "reference_number": { "type": "string", "description": "Bank reference number" },
+    "status": { "type": "string", "enum": ["Pending", "Success", "Failed", "Reversed"], "description": "Transaction status" },
+    "initiated_from": { "type": "string", "enum": ["Mobile", "Web", "Branch", "ATM", "CSP"], "description": "Channel used" },
+    "processing_fee": { "type": "number", "description": "Fee charged for the transaction" }
+  },
+  "auto_fields": ["id", "created_date", "updated_date", "created_by"]
+}
