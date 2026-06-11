@@ -1,0 +1,21 @@
+{
+  "entity": "Customer",
+  "description": "Core customer profiles for Veridian Bank account holders",
+  "fields": {
+    "customer_id": { "type": "string", "description": "Unique customer identifier" },
+    "full_name": { "type": "string", "description": "Customer full name" },
+    "phone_number": { "type": "string", "description": "Mobile number" },
+    "email": { "type": "string", "description": "Email address" },
+    "aadhaar_number": { "type": "string", "description": "12-digit Aadhaar number (masked)" },
+    "account_number": { "type": "string", "description": "Bank account number" },
+    "account_type": { "type": "string", "enum": ["Savings", "Current", "FD", "RD", "NRI"], "description": "Type of account" },
+    "balance": { "type": "number", "description": "Current account balance (INR)" },
+    "branch_code": { "type": "string", "description": "Home branch code" },
+    "kyc_status": { "type": "string", "enum": ["Pending", "Verified", "Rejected", "Expired"], "description": "KYC verification status" },
+    "account_status": { "type": "string", "enum": ["Active", "Inactive", "Frozen", "Closed"], "description": "Account status" },
+    "date_of_birth": { "type": "string", "format": "date", "description": "Date of birth" },
+    "address": { "type": "string", "description": "Residential address" },
+    "pin_hash": { "type": "string", "description": "Hashed MPIN (never store plain text)" }
+  },
+  "auto_fields": ["id", "created_date", "updated_date", "created_by"]
+}
