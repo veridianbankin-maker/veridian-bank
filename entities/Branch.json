@@ -1,0 +1,17 @@
+{
+  "entity": "Branch",
+  "description": "Veridian Bank branch network details and performance",
+  "fields": {
+    "branch_code": { "type": "string", "description": "Unique branch code (IFSC prefix)" },
+    "branch_name": { "type": "string", "description": "Full branch name" },
+    "address": { "type": "string", "description": "Physical address" },
+    "city": { "type": "string", "description": "City" },
+    "state": { "type": "string", "description": "State" },
+    "manager_name": { "type": "string", "description": "Branch manager full name" },
+    "phone_number": { "type": "string", "description": "Branch contact number" },
+    "total_customers": { "type": "integer", "description": "Total active customers at branch" },
+    "total_deposits": { "type": "number", "description": "Total deposits held (INR)" },
+    "status": { "type": "string", "enum": ["Active", "Inactive", "Under Renovation"], "description": "Branch operational status" }
+  },
+  "auto_fields": ["id", "created_date", "updated_date", "created_by"]
+}
