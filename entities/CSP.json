@@ -1,0 +1,20 @@
+{
+  "entity": "CSP",
+  "description": "Customer Service Points — village-level banking agents for financial inclusion",
+  "fields": {
+    "csp_id": { "type": "string", "description": "Unique CSP identifier" },
+    "csp_name": { "type": "string", "description": "CSP centre name" },
+    "owner_name": { "type": "string", "description": "CSP operator/owner name" },
+    "phone_number": { "type": "string", "description": "Contact number" },
+    "address": { "type": "string", "description": "Physical address" },
+    "village": { "type": "string", "description": "Village name" },
+    "district": { "type": "string", "description": "District" },
+    "state": { "type": "string", "description": "State" },
+    "parent_branch": { "type": "string", "description": "Linked branch code" },
+    "services_offered": { "type": "array", "items": { "type": "string" }, "description": "List of services: [Account Opening, Cash Deposit, Withdrawal, Remittance, Insurance, etc.]" },
+    "daily_transaction_limit": { "type": "number", "description": "Max daily transaction limit (INR)" },
+    "cash_available": { "type": "number", "description": "Current cash balance at CSP (INR)" },
+    "status": { "type": "string", "enum": ["Active", "Inactive", "Suspended"], "description": "CSP operational status" }
+  },
+  "auto_fields": ["id", "created_date", "updated_date", "created_by"]
+}
