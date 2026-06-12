@@ -1,0 +1,29 @@
+{
+  "entity_name": "LoanDocument",
+  "supabase_table": "loandocument",
+  "schema": {
+    "properties": {
+      "loan_id": {
+        "type": "string"
+      },
+      "document_type": {
+        "type": "string"
+      },
+      "file_url": {
+        "type": "string"
+      },
+      "uploaded_by": {
+        "type": "string"
+      },
+      "verified": {
+        "type": "boolean",
+        "default": false
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

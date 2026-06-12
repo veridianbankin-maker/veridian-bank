@@ -1,0 +1,35 @@
+{
+  "entity_name": "CSPWallet",
+  "supabase_table": "csp_wallet",
+  "schema": {
+    "properties": {
+      "csp_id": {
+        "type": "string"
+      },
+      "balance": {
+        "type": "number",
+        "default": 0
+      },
+      "last_recharge_amount": {
+        "type": "number"
+      },
+      "last_recharge_at": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Active",
+          "Suspended",
+          "Closed"
+        ]
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

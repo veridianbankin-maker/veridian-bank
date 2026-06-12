@@ -1,0 +1,58 @@
+{
+  "entity_name": "BankProduct",
+  "supabase_table": "bankproduct",
+  "schema": {
+    "properties": {
+      "product_id": {
+        "type": "string"
+      },
+      "product_name": {
+        "type": "string"
+      },
+      "category": {
+        "type": "string",
+        "enum": [
+          "Savings",
+          "Loan",
+          "Insurance",
+          "Investment",
+          "Credit Card",
+          "FD"
+        ]
+      },
+      "description": {
+        "type": "string"
+      },
+      "interest_rate": {
+        "type": "number"
+      },
+      "min_amount": {
+        "type": "number"
+      },
+      "max_amount": {
+        "type": "number"
+      },
+      "tenure_min": {
+        "type": "integer"
+      },
+      "tenure_max": {
+        "type": "integer"
+      },
+      "is_active": {
+        "type": "boolean",
+        "default": true
+      },
+      "features": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

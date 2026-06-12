@@ -1,0 +1,33 @@
+{
+  "entity_name": "LoanChargeConfig",
+  "supabase_table": "loanchargeconfig",
+  "schema": {
+    "properties": {
+      "loan_type": {
+        "type": "string"
+      },
+      "charge_name": {
+        "type": "string"
+      },
+      "charge_type": {
+        "type": "string",
+        "enum": [
+          "Percentage",
+          "Flat"
+        ]
+      },
+      "charge_value": {
+        "type": "number"
+      },
+      "is_active": {
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

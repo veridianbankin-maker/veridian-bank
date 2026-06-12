@@ -1,0 +1,37 @@
+{
+  "entity_name": "AdvisorChat",
+  "supabase_table": "advisorchat",
+  "schema": {
+    "properties": {
+      "conversation_id": {
+        "type": "string"
+      },
+      "customer_id": {
+        "type": "string"
+      },
+      "advisor_email": {
+        "type": "string"
+      },
+      "message": {
+        "type": "string"
+      },
+      "sender_role": {
+        "type": "string",
+        "enum": [
+          "customer",
+          "advisor",
+          "ai"
+        ]
+      },
+      "is_read": {
+        "type": "boolean",
+        "default": false
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

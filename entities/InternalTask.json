@@ -1,0 +1,50 @@
+{
+  "entity_name": "InternalTask",
+  "supabase_table": "internaltask",
+  "schema": {
+    "properties": {
+      "task_id": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "assigned_to": {
+        "type": "string"
+      },
+      "assigned_by": {
+        "type": "string"
+      },
+      "priority": {
+        "type": "string",
+        "enum": [
+          "Low",
+          "Medium",
+          "High",
+          "Urgent"
+        ]
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Open",
+          "In Progress",
+          "Completed",
+          "Cancelled"
+        ]
+      },
+      "due_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "description": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "entity_name": "Card",
+  "supabase_table": "card",
+  "schema": {
+    "properties": {
+      "card_number": {
+        "type": "string"
+      },
+      "customer_id": {
+        "type": "string"
+      },
+      "account_number": {
+        "type": "string"
+      },
+      "card_type": {
+        "type": "string",
+        "enum": [
+          "Debit",
+          "Credit",
+          "Prepaid"
+        ]
+      },
+      "network": {
+        "type": "string",
+        "enum": [
+          "Visa",
+          "Mastercard",
+          "RuPay"
+        ]
+      },
+      "expiry_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "daily_limit": {
+        "type": "number"
+      },
+      "is_active": {
+        "type": "boolean",
+        "default": true
+      },
+      "is_blocked": {
+        "type": "boolean",
+        "default": false
+      },
+      "pin_set": {
+        "type": "boolean",
+        "default": false
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

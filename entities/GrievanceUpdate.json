@@ -1,0 +1,25 @@
+{
+  "entity_name": "GrievanceUpdate",
+  "supabase_table": "grievanceupdate",
+  "schema": {
+    "properties": {
+      "grievance_id": {
+        "type": "string"
+      },
+      "updated_by": {
+        "type": "string"
+      },
+      "note": {
+        "type": "string"
+      },
+      "status_changed_to": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

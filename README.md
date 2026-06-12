@@ -1,73 +1,159 @@
 # 🏦 Veridian Bank
 
-> Experience seamless banking with Veridian Bank. Manage accounts, make secure payments, apply for loans, and access personalized financial insights – all from one intuitive platform.
+**Full-stack digital banking platform** built on Base44 with Supabase backend, real-time sync, and AI-powered relationship manager.
 
-**Live App:** https://veridian-bank.base44.app
+[![Supabase](https://img.shields.io/badge/Supabase-63%20Tables-green)](https://supabase.com/dashboard/project/ssrlburjpwnpoiclaiss)
+[![GitHub](https://img.shields.io/badge/GitHub-27%20Files-blue)](https://github.com/veridianbankin-maker/veridian-bank)
+[![Sync](https://img.shields.io/badge/Sync-Every%2015%20Min-orange)]()
+[![AI](https://img.shields.io/badge/AI-Voice%20%2B%20Chat-purple)]()
 
 ---
 
-## 📋 Overview
+## 🚀 Architecture
 
-Veridian Bank is a full-featured digital banking platform built on [Base44](https://base44.com). It provides a comprehensive suite of banking services for customers, branch staff, CSP operators, and executives.
+```
+Base44 App (BankNet)          Supabase (ssrlburjpwnpoiclaiss)
+┌─────────────────────┐       ┌──────────────────────────────┐
+│  63 Entities        │──────▶│  63 PostgreSQL Tables        │
+│  Frontend Pages     │       │  16 Indexes                  │
+│  Backend Functions  │       │  4 RLS Policies              │
+│  AI Advisor         │       │  Triggers (updated_at)       │
+└─────────────────────┘       └──────────────────────────────┘
+        │ every 15 min (realtimeSync)
+        ▼
+┌─────────────────────┐
+│  GitHub Repository  │
+│  27 files tracked   │
+└─────────────────────┘
+```
 
-## 🚀 Features
+---
 
-- **Customer Management** — KYC, onboarding, account creation, self-service portal
-- **Transactions** — Fund transfers, digital passbook, account statements
-- **Loans** — Application, approval, EMI tracking, disbursement
-- **Branch Network** — Branch management, performance dashboards, officer tools
-- **CSP Operations** — Customer Service Points, cash reconciliation, wallet management
-- **Cards** — Debit/credit card management
-- **Investments** — Investment module and financial marketplace
-- **Compliance & Audit** — Audit trail, fraud alerts, risk scoring
-- **Analytics** — Executive dashboards, branch-wise analytics, reporting
-- **AI Assistant** — AI Financial Assistant, Advisor Chat
-- **Appointments** — Branch appointment booking and scheduling
-- **Document Management** — KYC docs, e-signature, biometric verification
+## 🤖 AI Advisor (Key Feature)
 
-## 🗄️ Data Entities
+Veridian Bank's **Virtual Relationship Manager** — AI chatbot + voice commands.
 
-| Entity | Description |
-|--------|-------------|
-| `Customer` | Core customer profiles with KYC, account info, Aadhaar |
-| `Transaction` | All financial transactions with full audit trail |
-| `Loan` | Loan applications, approvals, EMI schedules |
-| `Branch` | Branch network with manager info and performance data |
-| `CSP` | Customer Service Points — village-level banking agents |
+### Languages Supported
+| Language | Voice | Chat |
+|----------|-------|------|
+| Hinglish (Hindi+English) | ✅ | ✅ |
+| Hindi | ✅ | ✅ |
+| English | ✅ | ✅ |
 
-## 🛠️ Tech Stack
+### Capabilities
+- **Account Opening**: Full conversational onboarding — customer says "savings account kholna hai" → AI collects all 7 fields step by step
+- **Voice Transactions**: "Rahul ko 500 rupaye bhejo" → confirmation → execute
+- **Balance & History**: Voice/chat queries
+- **Financial Advisory**: Investment suggestions, FD rates, loan eligibility
+- **Customer Analysis**: Balance health, loan burden, KYC status alerts
 
-- **Platform:** Base44 (code + AI )
-- **Database:** Base44 Entities + Supabase (PostgreSQL)
-- **Frontend:** React (generated on Base44)
-- **Auth:** Base44 built-in auth
-- **Hosting:** base44.app CDN
+### Usage
+```tsx
+import AIAdvisor from './components/AIAdvisor';
+import VoiceCommandEngine from './components/VoiceCommandEngine';
 
-## 📁 Project Structure
+// Floating widget (any page)
+<AIAdvisor customer={customerProfile} onTransaction={handleTxn} />
+
+// Standalone voice
+<VoiceCommandEngine onCommand={handleVoiceCmd} language="hi-IN" />
+```
+
+---
+
+## 🗄️ Database (Supabase)
+
+**Project**: `ssrlburjpwnpoiclaiss`  
+**Tables**: 63 production tables  
+**URL**: https://supabase.com/dashboard/project/ssrlburjpwnpoiclaiss
+
+### Core Entities
+| Table | Description |
+|-------|-------------|
+| `branches` | 5 seeded branches across India |
+| `customers` | Account holders with KYC status |
+| `transactions` | All banking transactions |
+| `loans` | Loan applications & disbursements |
+| `csps` | Customer Service Points |
+
+### Run Migration
+```sql
+-- In Supabase SQL Editor:
+-- https://supabase.com/dashboard/project/ssrlburjpwnpoiclaiss/sql/new
+-- Run: scripts/supabase_migration_v3_full.sql
+```
+
+---
+
+## 📧 Email Policy
+
+| Event | Email Sent To |
+|-------|--------------|
+| Account Opening | ✅ Customer only |
+| Withdrawal | ✅ Customer only |
+| Deposit | ✅ Customer only |
+| OTP | ✅ Customer only |
+| Biometric alerts | ❌ Portal only |
+| Fraud alerts | ❌ Portal only |
+| All admin events | ❌ Portal only |
+
+See `docs/EMAIL_POLICY.md` for full details.
+
+---
+
+## 🔄 Real-time Sync
+
+Sync runs **every 15 minutes** via `realtimeSync` backend function.
+
+```
+POST /functions/realtimeSync
+{ "mode": "health" }              → check all 5 core tables
+{ entity, event_type, data }      → sync single entity event
+{ table, records }                → bulk upsert
+```
+
+---
+
+## 📁 Repository Structure
 
 ```
 veridian-bank/
-├── README.md
-├── entities/               # Data model schemas (JSON)
+├── backend/functions/
+│   ├── realtimeSync.ts         ← Real-time Base44→Supabase sync
+│   ├── syncToSupabase.ts       ← Health check + bulk sync
+│   ├── createTransaction.ts    ← Create transactions
+│   ├── getCustomer.ts          ← Fetch customer data
+│   └── getLoanStatus.ts        ← Loan status check
+├── docs/
+│   ├── API.md
+│   ├── ARCHITECTURE.md
+│   ├── EMAIL_POLICY.md         ← Email rules (customers only)
+│   └── SUPABASE.md
+├── entities/                   ← 63 entity JSON schemas
 │   ├── Customer.json
 │   ├── Transaction.json
-│   ├── Loan.json
-│   ├── Branch.json
-│   └── CSP.json
-├── docs/
-│   ├── ARCHITECTURE.md     # System architecture overview
-│   ├── API.md              # API & entity reference
-│   └── SUPABASE.md         # Supabase integration guide
+│   └── ... (63 total)
+├── frontend/
+│   ├── components/
+│   │   ├── AIAdvisor.tsx       ← AI chatbot + voice widget
+│   │   └── VoiceCommandEngine.tsx ← Voice command processor
+│   └── pages/
+│       └── AdvisorChat.tsx     ← Full advisor page
 └── scripts/
-    └── supabase_migration.sql  # DB migration scripts
+    ├── supabase_migration.sql
+    └── supabase_migration_v3_full.sql  ← RUN THIS
 ```
 
-## 🔗 Links
+---
 
-- **App:** https://veridian-bank.base44.app
-- **Builder:** https://app.base44.com
-- **Supabase Project:** ap-southeast-1 region
+## 🔒 Security
 
-## 👤 Owner
+- Row Level Security (RLS) on all sensitive tables
+- Customers can only read their own records
+- Service role key stored as `SUPABASE_SERVICE_ROLE_KEY` env secret
+- Audit log on all admin actions
+- Biometric + KYC verification required for full access
 
-Mujtaba — Veridian Bank (veridianbank.in@gmail.com)
+---
+
+*Built with Base44 · Supabase · TypeScript · React*

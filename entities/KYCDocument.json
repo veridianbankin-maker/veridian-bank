@@ -1,0 +1,49 @@
+{
+  "entity_name": "KYCDocument",
+  "supabase_table": "kyc_document",
+  "schema": {
+    "properties": {
+      "customer_id": {
+        "type": "string"
+      },
+      "document_type": {
+        "type": "string",
+        "enum": [
+          "Aadhaar",
+          "PAN",
+          "Passport",
+          "Voter ID",
+          "Driving License",
+          "Utility Bill"
+        ]
+      },
+      "document_number": {
+        "type": "string"
+      },
+      "file_url": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Pending",
+          "Verified",
+          "Rejected",
+          "Expired"
+        ]
+      },
+      "reviewed_by": {
+        "type": "string"
+      },
+      "reviewed_at": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

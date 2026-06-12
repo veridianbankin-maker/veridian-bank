@@ -1,0 +1,53 @@
+{
+  "entity_name": "Investment",
+  "supabase_table": "investment",
+  "schema": {
+    "properties": {
+      "investment_id": {
+        "type": "string"
+      },
+      "customer_id": {
+        "type": "string"
+      },
+      "investment_type": {
+        "type": "string",
+        "enum": [
+          "FD",
+          "RD",
+          "Mutual Fund",
+          "Bonds",
+          "NPS",
+          "PPF"
+        ]
+      },
+      "amount": {
+        "type": "number"
+      },
+      "current_value": {
+        "type": "number"
+      },
+      "purchase_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "maturity_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Active",
+          "Matured",
+          "Withdrawn",
+          "Foreclosed"
+        ]
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

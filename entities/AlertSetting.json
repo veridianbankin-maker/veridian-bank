@@ -1,0 +1,26 @@
+{
+  "entity_name": "AlertSetting",
+  "supabase_table": "alertsetting",
+  "schema": {
+    "properties": {
+      "customer_id": {
+        "type": "string"
+      },
+      "alert_type": {
+        "type": "string"
+      },
+      "threshold_amount": {
+        "type": "number"
+      },
+      "is_active": {
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

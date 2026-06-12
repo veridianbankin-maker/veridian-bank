@@ -1,0 +1,44 @@
+{
+  "entity_name": "Appointment",
+  "supabase_table": "appointment",
+  "schema": {
+    "properties": {
+      "appointment_id": {
+        "type": "string"
+      },
+      "customer_id": {
+        "type": "string"
+      },
+      "branch_code": {
+        "type": "string"
+      },
+      "purpose": {
+        "type": "string"
+      },
+      "appointment_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "appointment_time": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Scheduled",
+          "Completed",
+          "Cancelled",
+          "No-Show"
+        ]
+      },
+      "staff_email": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

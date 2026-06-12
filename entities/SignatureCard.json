@@ -1,0 +1,26 @@
+{
+  "entity_name": "SignatureCard",
+  "supabase_table": "signaturecard",
+  "schema": {
+    "properties": {
+      "customer_id": {
+        "type": "string"
+      },
+      "account_number": {
+        "type": "string"
+      },
+      "signature_url": {
+        "type": "string"
+      },
+      "is_verified": {
+        "type": "boolean",
+        "default": false
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "entity_name": "Biller",
+  "supabase_table": "biller",
+  "schema": {
+    "properties": {
+      "biller_id": {
+        "type": "string"
+      },
+      "biller_name": {
+        "type": "string"
+      },
+      "category": {
+        "type": "string",
+        "enum": [
+          "Electricity",
+          "Water",
+          "Gas",
+          "Telecom",
+          "Insurance",
+          "Tax",
+          "Other"
+        ]
+      },
+      "logo_url": {
+        "type": "string"
+      },
+      "is_active": {
+        "type": "boolean",
+        "default": true
+      },
+      "payment_modes": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

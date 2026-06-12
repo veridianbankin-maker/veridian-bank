@@ -1,0 +1,47 @@
+{
+  "entity_name": "DeathClaim",
+  "supabase_table": "deathclaim",
+  "schema": {
+    "properties": {
+      "claim_id": {
+        "type": "string"
+      },
+      "customer_id": {
+        "type": "string"
+      },
+      "claimant_name": {
+        "type": "string"
+      },
+      "relationship": {
+        "type": "string"
+      },
+      "death_certificate_url": {
+        "type": "string"
+      },
+      "account_number": {
+        "type": "string"
+      },
+      "claim_amount": {
+        "type": "number"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Filed",
+          "Under Review",
+          "Approved",
+          "Rejected",
+          "Disbursed"
+        ]
+      },
+      "processed_by": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

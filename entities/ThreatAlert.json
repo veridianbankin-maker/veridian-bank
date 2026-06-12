@@ -1,0 +1,51 @@
+{
+  "entity_name": "ThreatAlert",
+  "supabase_table": "threatalert",
+  "schema": {
+    "properties": {
+      "alert_id": {
+        "type": "string"
+      },
+      "threat_type": {
+        "type": "string",
+        "enum": [
+          "Phishing",
+          "DDoS",
+          "Unauthorized Access",
+          "Data Breach",
+          "Malware",
+          "Social Engineering"
+        ]
+      },
+      "source_ip": {
+        "type": "string"
+      },
+      "severity": {
+        "type": "string",
+        "enum": [
+          "Low",
+          "Medium",
+          "High",
+          "Critical"
+        ]
+      },
+      "description": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Active",
+          "Investigating",
+          "Resolved",
+          "False Positive"
+        ]
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

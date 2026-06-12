@@ -1,0 +1,33 @@
+{
+  "entity_name": "ExecutiveRole",
+  "supabase_table": "executiverole",
+  "schema": {
+    "properties": {
+      "staff_email": {
+        "type": "string"
+      },
+      "role_id": {
+        "type": "string"
+      },
+      "branch_code": {
+        "type": "string"
+      },
+      "assigned_by": {
+        "type": "string"
+      },
+      "valid_from": {
+        "type": "string",
+        "format": "date"
+      },
+      "valid_until": {
+        "type": "string",
+        "format": "date"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

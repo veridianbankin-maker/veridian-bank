@@ -1,0 +1,43 @@
+{
+  "entity_name": "BranchAsset",
+  "supabase_table": "branchasset",
+  "schema": {
+    "properties": {
+      "asset_id": {
+        "type": "string"
+      },
+      "asset_name": {
+        "type": "string"
+      },
+      "branch_code": {
+        "type": "string"
+      },
+      "category": {
+        "type": "string"
+      },
+      "purchase_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "purchase_value": {
+        "type": "number"
+      },
+      "current_value": {
+        "type": "number"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Active",
+          "Disposed",
+          "Under Repair"
+        ]
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

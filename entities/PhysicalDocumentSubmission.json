@@ -1,0 +1,38 @@
+{
+  "entity_name": "PhysicalDocumentSubmission",
+  "supabase_table": "physicaldocumentsubmission",
+  "schema": {
+    "properties": {
+      "customer_id": {
+        "type": "string"
+      },
+      "document_type": {
+        "type": "string"
+      },
+      "submitted_at": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "received_by": {
+        "type": "string"
+      },
+      "branch_code": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Received",
+          "Processing",
+          "Verified",
+          "Returned"
+        ]
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "entity_name": "ScheduledPayment",
+  "supabase_table": "scheduledpayment",
+  "schema": {
+    "properties": {
+      "payment_ref": {
+        "type": "string"
+      },
+      "customer_id": {
+        "type": "string"
+      },
+      "payment_type": {
+        "type": "string",
+        "enum": [
+          "EMI",
+          "Recurring Transfer",
+          "Bill Payment",
+          "SIP"
+        ]
+      },
+      "amount": {
+        "type": "number"
+      },
+      "frequency": {
+        "type": "string",
+        "enum": [
+          "Daily",
+          "Weekly",
+          "Monthly",
+          "Quarterly",
+          "Annually"
+        ]
+      },
+      "next_execution_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "end_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Active",
+          "Paused",
+          "Completed",
+          "Cancelled"
+        ]
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "entity_name": "SignedDocument",
+  "supabase_table": "signeddocument",
+  "schema": {
+    "properties": {
+      "customer_id": {
+        "type": "string"
+      },
+      "document_type": {
+        "type": "string"
+      },
+      "file_url": {
+        "type": "string"
+      },
+      "signed_at": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "ip_address": {
+        "type": "string"
+      },
+      "device_info": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

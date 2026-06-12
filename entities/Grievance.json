@@ -1,0 +1,59 @@
+{
+  "entity_name": "Grievance",
+  "supabase_table": "grievance",
+  "schema": {
+    "properties": {
+      "grievance_id": {
+        "type": "string"
+      },
+      "customer_id": {
+        "type": "string"
+      },
+      "subject": {
+        "type": "string"
+      },
+      "category": {
+        "type": "string",
+        "enum": [
+          "Transaction",
+          "Account",
+          "Loan",
+          "Card",
+          "KYC",
+          "Service",
+          "Other"
+        ]
+      },
+      "description": {
+        "type": "string"
+      },
+      "priority": {
+        "type": "string",
+        "enum": [
+          "Low",
+          "Medium",
+          "High",
+          "Critical"
+        ]
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Open",
+          "In Progress",
+          "Resolved",
+          "Closed",
+          "Escalated"
+        ]
+      },
+      "assigned_to": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

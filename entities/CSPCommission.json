@@ -1,0 +1,42 @@
+{
+  "entity_name": "CSPCommission",
+  "supabase_table": "csp_commission",
+  "schema": {
+    "properties": {
+      "csp_id": {
+        "type": "string"
+      },
+      "transaction_type": {
+        "type": "string"
+      },
+      "commission_rate": {
+        "type": "number"
+      },
+      "flat_amount": {
+        "type": "number"
+      },
+      "month_year": {
+        "type": "string"
+      },
+      "total_transactions": {
+        "type": "integer"
+      },
+      "total_commission": {
+        "type": "number"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Pending",
+          "Paid",
+          "On Hold"
+        ]
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

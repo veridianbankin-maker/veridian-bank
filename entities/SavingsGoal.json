@@ -1,0 +1,42 @@
+{
+  "entity_name": "SavingsGoal",
+  "supabase_table": "savingsgoal",
+  "schema": {
+    "properties": {
+      "goal_id": {
+        "type": "string"
+      },
+      "customer_id": {
+        "type": "string"
+      },
+      "goal_name": {
+        "type": "string"
+      },
+      "target_amount": {
+        "type": "number"
+      },
+      "current_amount": {
+        "type": "number",
+        "default": 0
+      },
+      "target_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Active",
+          "Achieved",
+          "Cancelled",
+          "Paused"
+        ]
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

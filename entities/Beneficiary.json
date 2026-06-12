@@ -1,0 +1,44 @@
+{
+  "entity_name": "Beneficiary",
+  "supabase_table": "beneficiary",
+  "schema": {
+    "properties": {
+      "customer_id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "account_number": {
+        "type": "string"
+      },
+      "ifsc_code": {
+        "type": "string"
+      },
+      "bank_name": {
+        "type": "string"
+      },
+      "transfer_mode": {
+        "type": "string",
+        "enum": [
+          "NEFT",
+          "RTGS",
+          "IMPS",
+          "UPI"
+        ]
+      },
+      "is_verified": {
+        "type": "boolean",
+        "default": false
+      },
+      "nick_name": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

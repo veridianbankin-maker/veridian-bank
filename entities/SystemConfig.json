@@ -1,0 +1,36 @@
+{
+  "entity_name": "SystemConfig",
+  "supabase_table": "systemconfig",
+  "schema": {
+    "properties": {
+      "config_key": {
+        "type": "string"
+      },
+      "config_value": {
+        "type": "string"
+      },
+      "category": {
+        "type": "string",
+        "enum": [
+          "email",
+          "portal",
+          "sync",
+          "security",
+          "limits",
+          "features"
+        ]
+      },
+      "description": {
+        "type": "string"
+      },
+      "updated_by": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

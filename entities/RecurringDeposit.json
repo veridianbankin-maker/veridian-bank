@@ -1,0 +1,48 @@
+{
+  "entity_name": "RecurringDeposit",
+  "supabase_table": "recurringdeposit",
+  "schema": {
+    "properties": {
+      "rd_id": {
+        "type": "string"
+      },
+      "customer_id": {
+        "type": "string"
+      },
+      "monthly_amount": {
+        "type": "number"
+      },
+      "tenure_months": {
+        "type": "integer"
+      },
+      "interest_rate": {
+        "type": "number"
+      },
+      "maturity_amount": {
+        "type": "number"
+      },
+      "start_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "maturity_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Active",
+          "Matured",
+          "Withdrawn",
+          "Foreclosed"
+        ]
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "entity_name": "RolePermission",
+  "supabase_table": "rolepermission",
+  "schema": {
+    "properties": {
+      "role_name": {
+        "type": "string"
+      },
+      "module_name": {
+        "type": "string"
+      },
+      "can_view": {
+        "type": "boolean",
+        "default": false
+      },
+      "can_create": {
+        "type": "boolean",
+        "default": false
+      },
+      "can_edit": {
+        "type": "boolean",
+        "default": false
+      },
+      "can_delete": {
+        "type": "boolean",
+        "default": false
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

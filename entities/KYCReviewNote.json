@@ -1,0 +1,31 @@
+{
+  "entity_name": "KYCReviewNote",
+  "supabase_table": "kyc_reviewnote",
+  "schema": {
+    "properties": {
+      "customer_id": {
+        "type": "string"
+      },
+      "reviewed_by": {
+        "type": "string"
+      },
+      "note": {
+        "type": "string"
+      },
+      "action_taken": {
+        "type": "string",
+        "enum": [
+          "Approved",
+          "Rejected",
+          "More Info Required",
+          "Escalated"
+        ]
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

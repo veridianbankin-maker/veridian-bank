@@ -1,0 +1,37 @@
+{
+  "entity_name": "CashTransaction",
+  "supabase_table": "cashtransaction",
+  "schema": {
+    "properties": {
+      "txn_ref": {
+        "type": "string"
+      },
+      "vault_id": {
+        "type": "string"
+      },
+      "transaction_type": {
+        "type": "string",
+        "enum": [
+          "Deposit",
+          "Withdrawal",
+          "Transfer",
+          "Replenishment"
+        ]
+      },
+      "amount": {
+        "type": "number"
+      },
+      "performed_by": {
+        "type": "string"
+      },
+      "notes": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

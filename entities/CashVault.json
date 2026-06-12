@@ -1,0 +1,41 @@
+{
+  "entity_name": "CashVault",
+  "supabase_table": "cashvault",
+  "schema": {
+    "properties": {
+      "vault_id": {
+        "type": "string"
+      },
+      "branch_code": {
+        "type": "string"
+      },
+      "current_balance": {
+        "type": "number",
+        "default": 0
+      },
+      "minimum_balance": {
+        "type": "number"
+      },
+      "maximum_capacity": {
+        "type": "number"
+      },
+      "last_replenished_at": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Active",
+          "Locked",
+          "Maintenance"
+        ]
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "entity_name": "BusinessRole",
+  "supabase_table": "businessrole",
+  "schema": {
+    "properties": {
+      "role_id": {
+        "type": "string"
+      },
+      "role_name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "is_active": {
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

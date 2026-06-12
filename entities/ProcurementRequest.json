@@ -1,0 +1,44 @@
+{
+  "entity_name": "ProcurementRequest",
+  "supabase_table": "procurementrequest",
+  "schema": {
+    "properties": {
+      "request_id": {
+        "type": "string"
+      },
+      "item_name": {
+        "type": "string"
+      },
+      "quantity": {
+        "type": "integer"
+      },
+      "estimated_cost": {
+        "type": "number"
+      },
+      "requested_by": {
+        "type": "string"
+      },
+      "branch_code": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Pending",
+          "Approved",
+          "Rejected",
+          "Ordered",
+          "Delivered"
+        ]
+      },
+      "approved_by": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

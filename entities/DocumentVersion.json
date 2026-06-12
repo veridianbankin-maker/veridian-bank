@@ -1,0 +1,28 @@
+{
+  "entity_name": "DocumentVersion",
+  "supabase_table": "documentversion",
+  "schema": {
+    "properties": {
+      "doc_id": {
+        "type": "string"
+      },
+      "version": {
+        "type": "string"
+      },
+      "file_url": {
+        "type": "string"
+      },
+      "change_notes": {
+        "type": "string"
+      },
+      "created_by": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

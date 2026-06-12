@@ -1,0 +1,29 @@
+{
+  "entity_name": "StaffAvailability",
+  "supabase_table": "staffavailability",
+  "schema": {
+    "properties": {
+      "staff_email": {
+        "type": "string"
+      },
+      "branch_code": {
+        "type": "string"
+      },
+      "available_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "time_slots": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

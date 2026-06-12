@@ -1,0 +1,45 @@
+{
+  "entity_name": "DeviceSession",
+  "supabase_table": "devicesession",
+  "schema": {
+    "properties": {
+      "customer_id": {
+        "type": "string"
+      },
+      "device_id": {
+        "type": "string"
+      },
+      "device_type": {
+        "type": "string",
+        "enum": [
+          "Mobile",
+          "Tablet",
+          "Desktop",
+          "Kiosk"
+        ]
+      },
+      "os_version": {
+        "type": "string"
+      },
+      "app_version": {
+        "type": "string"
+      },
+      "ip_address": {
+        "type": "string"
+      },
+      "is_active": {
+        "type": "boolean",
+        "default": true
+      },
+      "last_active_at": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

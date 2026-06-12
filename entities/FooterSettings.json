@@ -1,0 +1,25 @@
+{
+  "entity_name": "FooterSettings",
+  "supabase_table": "footersettings",
+  "schema": {
+    "properties": {
+      "setting_key": {
+        "type": "string"
+      },
+      "setting_value": {
+        "type": "string"
+      },
+      "category": {
+        "type": "string"
+      },
+      "updated_by": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

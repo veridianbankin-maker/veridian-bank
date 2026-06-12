@@ -1,0 +1,47 @@
+{
+  "entity_name": "SystemMailV2",
+  "supabase_table": "systemmailv2",
+  "schema": {
+    "properties": {
+      "mail_id": {
+        "type": "string"
+      },
+      "category": {
+        "type": "string",
+        "enum": [
+          "transaction",
+          "account",
+          "otp",
+          "alert",
+          "marketing"
+        ]
+      },
+      "send_email": {
+        "type": "boolean",
+        "default": false,
+        "description": "ONLY true for customer-facing mails"
+      },
+      "recipient_email": {
+        "type": "string"
+      },
+      "subject": {
+        "type": "string"
+      },
+      "body": {
+        "type": "string"
+      },
+      "customer_id": {
+        "type": "string"
+      },
+      "portal_display": {
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

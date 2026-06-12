@@ -1,0 +1,41 @@
+{
+  "entity_name": "RBIFiling",
+  "supabase_table": "rbi_filing",
+  "schema": {
+    "properties": {
+      "filing_id": {
+        "type": "string"
+      },
+      "filing_type": {
+        "type": "string"
+      },
+      "period": {
+        "type": "string"
+      },
+      "submitted_by": {
+        "type": "string"
+      },
+      "submitted_at": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "file_url": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Draft",
+          "Submitted",
+          "Accepted",
+          "Rejected"
+        ]
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

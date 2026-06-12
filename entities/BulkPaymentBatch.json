@@ -1,0 +1,43 @@
+{
+  "entity_name": "BulkPaymentBatch",
+  "supabase_table": "bulkpaymentbatch",
+  "schema": {
+    "properties": {
+      "batch_id": {
+        "type": "string"
+      },
+      "initiated_by": {
+        "type": "string"
+      },
+      "total_count": {
+        "type": "integer"
+      },
+      "success_count": {
+        "type": "integer"
+      },
+      "failed_count": {
+        "type": "integer"
+      },
+      "total_amount": {
+        "type": "number"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Pending",
+          "Processing",
+          "Completed",
+          "Failed"
+        ]
+      },
+      "file_url": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

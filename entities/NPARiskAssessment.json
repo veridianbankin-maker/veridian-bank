@@ -1,0 +1,42 @@
+{
+  "entity_name": "NPARiskAssessment",
+  "supabase_table": "npa_riskassessment",
+  "schema": {
+    "properties": {
+      "loan_id": {
+        "type": "string"
+      },
+      "customer_id": {
+        "type": "string"
+      },
+      "risk_score": {
+        "type": "integer"
+      },
+      "risk_category": {
+        "type": "string",
+        "enum": [
+          "Standard",
+          "Sub-Standard",
+          "Doubtful",
+          "Loss"
+        ]
+      },
+      "days_overdue": {
+        "type": "integer",
+        "default": 0
+      },
+      "last_assessed_at": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "notes": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

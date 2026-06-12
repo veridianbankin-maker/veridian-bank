@@ -1,0 +1,45 @@
+{
+  "entity_name": "Dashboard",
+  "supabase_table": "dashboard",
+  "schema": {
+    "properties": {
+      "widget_key": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "widget_type": {
+        "type": "string",
+        "enum": [
+          "chart",
+          "table",
+          "metric",
+          "alert",
+          "map"
+        ]
+      },
+      "config": {
+        "type": "object"
+      },
+      "visible_to": {
+        "type": "string",
+        "enum": [
+          "super_admin",
+          "admin",
+          "branch_manager",
+          "customer"
+        ]
+      },
+      "is_active": {
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

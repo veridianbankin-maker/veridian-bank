@@ -1,0 +1,26 @@
+{
+  "entity_name": "CSPCounterQR",
+  "supabase_table": "csp_counterqr",
+  "schema": {
+    "properties": {
+      "csp_id": {
+        "type": "string"
+      },
+      "qr_code": {
+        "type": "string"
+      },
+      "qr_image_url": {
+        "type": "string"
+      },
+      "is_active": {
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

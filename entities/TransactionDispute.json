@@ -1,0 +1,45 @@
+{
+  "entity_name": "TransactionDispute",
+  "supabase_table": "transactiondispute",
+  "schema": {
+    "properties": {
+      "dispute_id": {
+        "type": "string"
+      },
+      "transaction_id": {
+        "type": "string"
+      },
+      "customer_id": {
+        "type": "string"
+      },
+      "reason": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Open",
+          "Under Review",
+          "Resolved",
+          "Rejected",
+          "Escalated"
+        ]
+      },
+      "resolution": {
+        "type": "string"
+      },
+      "resolved_by": {
+        "type": "string"
+      },
+      "resolved_at": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

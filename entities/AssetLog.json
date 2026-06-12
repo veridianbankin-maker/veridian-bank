@@ -1,0 +1,25 @@
+{
+  "entity_name": "AssetLog",
+  "supabase_table": "assetlog",
+  "schema": {
+    "properties": {
+      "asset_id": {
+        "type": "string"
+      },
+      "action": {
+        "type": "string"
+      },
+      "performed_by": {
+        "type": "string"
+      },
+      "notes": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

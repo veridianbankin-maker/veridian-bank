@@ -1,0 +1,35 @@
+{
+  "entity_name": "BankDocument",
+  "supabase_table": "bankdocument",
+  "schema": {
+    "properties": {
+      "doc_id": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "category": {
+        "type": "string"
+      },
+      "file_url": {
+        "type": "string"
+      },
+      "version": {
+        "type": "string"
+      },
+      "is_active": {
+        "type": "boolean",
+        "default": true
+      },
+      "uploaded_by": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

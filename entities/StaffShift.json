@@ -1,0 +1,48 @@
+{
+  "entity_name": "StaffShift",
+  "supabase_table": "staffshift",
+  "schema": {
+    "properties": {
+      "staff_email": {
+        "type": "string"
+      },
+      "branch_code": {
+        "type": "string"
+      },
+      "shift_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "shift_type": {
+        "type": "string",
+        "enum": [
+          "Morning",
+          "Afternoon",
+          "Evening",
+          "Night",
+          "Full Day"
+        ]
+      },
+      "start_time": {
+        "type": "string"
+      },
+      "end_time": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Scheduled",
+          "Completed",
+          "Absent",
+          "Swapped"
+        ]
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

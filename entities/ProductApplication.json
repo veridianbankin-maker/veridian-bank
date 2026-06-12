@@ -1,0 +1,42 @@
+{
+  "entity_name": "ProductApplication",
+  "supabase_table": "productapplication",
+  "schema": {
+    "properties": {
+      "application_id": {
+        "type": "string"
+      },
+      "customer_id": {
+        "type": "string"
+      },
+      "product_id": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Pending",
+          "Under Review",
+          "Approved",
+          "Rejected",
+          "Disbursed"
+        ]
+      },
+      "applied_at": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "reviewed_by": {
+        "type": "string"
+      },
+      "notes": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

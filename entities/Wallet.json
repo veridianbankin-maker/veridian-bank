@@ -1,0 +1,35 @@
+{
+  "entity_name": "Wallet",
+  "supabase_table": "wallet",
+  "schema": {
+    "properties": {
+      "wallet_id": {
+        "type": "string"
+      },
+      "customer_id": {
+        "type": "string"
+      },
+      "balance": {
+        "type": "number",
+        "default": 0
+      },
+      "currency": {
+        "type": "string",
+        "default": "INR"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Active",
+          "Suspended",
+          "Closed"
+        ]
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

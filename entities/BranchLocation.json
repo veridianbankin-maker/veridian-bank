@@ -1,0 +1,28 @@
+{
+  "entity_name": "BranchLocation",
+  "supabase_table": "branchlocation",
+  "schema": {
+    "properties": {
+      "branch_code": {
+        "type": "string"
+      },
+      "latitude": {
+        "type": "number"
+      },
+      "longitude": {
+        "type": "number"
+      },
+      "google_maps_url": {
+        "type": "string"
+      },
+      "landmark": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

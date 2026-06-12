@@ -1,0 +1,36 @@
+{
+  "entity_name": "NotificationPreference",
+  "supabase_table": "notificationpreference",
+  "schema": {
+    "properties": {
+      "customer_id": {
+        "type": "string"
+      },
+      "email_enabled": {
+        "type": "boolean",
+        "default": true
+      },
+      "sms_enabled": {
+        "type": "boolean",
+        "default": true
+      },
+      "push_enabled": {
+        "type": "boolean",
+        "default": true
+      },
+      "transaction_alerts": {
+        "type": "boolean",
+        "default": true
+      },
+      "promotional": {
+        "type": "boolean",
+        "default": false
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}

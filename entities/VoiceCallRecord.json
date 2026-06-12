@@ -1,0 +1,40 @@
+{
+  "entity_name": "VoiceCallRecord",
+  "supabase_table": "voicecallrecord",
+  "schema": {
+    "properties": {
+      "call_id": {
+        "type": "string"
+      },
+      "customer_id": {
+        "type": "string"
+      },
+      "staff_email": {
+        "type": "string"
+      },
+      "call_type": {
+        "type": "string",
+        "enum": [
+          "Inbound",
+          "Outbound",
+          "IVR",
+          "Video"
+        ]
+      },
+      "duration_seconds": {
+        "type": "integer"
+      },
+      "recording_url": {
+        "type": "string"
+      },
+      "call_purpose": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "sync": {
+    "realtime": true,
+    "supabase_enabled": true
+  }
+}
