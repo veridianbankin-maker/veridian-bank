@@ -1,0 +1,22 @@
+{
+  "entity_name": "SystemNotification",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "notification_id": { "type": "string" },
+      "target_role": { "type": "string", "enum": ["super_admin","admin","customer"] },
+      "title": { "type": "string" },
+      "message": { "type": "string" },
+      "notification_type": { "type": "string" },
+      "is_read": { "type": "boolean", "default": false },
+      "customer_id": { "type": "string" },
+      "metadata": { "type": "object" }
+    }
+  },
+  "email_policy": {
+    "send_email_for_customer_role": true,
+    "send_email_for_admin_role": false,
+    "send_email_for_super_admin_role": false,
+    "portal_display_for_admin": true
+  }
+}

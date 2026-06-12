@@ -1,0 +1,17 @@
+{
+  "entity_name": "AuditLog",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "user_email": { "type": "string" },
+      "action": { "type": "string" },
+      "entity_type": { "type": "string" },
+      "entity_id": { "type": "string" },
+      "old_value": { "type": "object" },
+      "new_value": { "type": "object" },
+      "ip_address": { "type": "string" },
+      "user_agent": { "type": "string" }
+    }
+  },
+  "email_policy": { "send_customer_email": false, "send_admin_email": false, "portal_display": true }
+}

@@ -1,0 +1,22 @@
+{
+  "entity_name": "FraudAlert",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "alert_id": { "type": "string" },
+      "customer_id": { "type": "string" },
+      "transaction_id": { "type": "string" },
+      "alert_type": { "type": "string", "enum": ["HighValue","Suspicious","Duplicate","Blocked","AML"] },
+      "severity": { "type": "string", "enum": ["Low","Medium","High","Critical"] },
+      "description": { "type": "string" },
+      "status": { "type": "string", "enum": ["Open","Investigating","Resolved","Dismissed"] },
+      "resolved_by": { "type": "string" }
+    }
+  },
+  "email_policy": {
+    "send_customer_email": false,
+    "send_admin_email": false,
+    "portal_display": true,
+    "note": "Fraud alerts shown ONLY on Super Admin portal dashboard — no emails to anyone"
+  }
+}

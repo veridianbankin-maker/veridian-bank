@@ -1,0 +1,21 @@
+{
+  "entity_name": "BiometricLog",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "customer_id": { "type": "string" },
+      "account_number": { "type": "string" },
+      "biometric_type": { "type": "string", "enum": ["Fingerprint","Iris","Face","Voice"] },
+      "status": { "type": "string", "enum": ["Enrolled","Incomplete","Failed","Expired"] },
+      "quality_level": { "type": "string" },
+      "enrolled_at": { "type": "string", "format": "date-time" },
+      "device_id": { "type": "string" }
+    }
+  },
+  "email_policy": {
+    "send_customer_email": false,
+    "send_admin_email": false,
+    "portal_display": true,
+    "note": "Biometric status updates shown ONLY on Super Admin portal — no emails"
+  }
+}

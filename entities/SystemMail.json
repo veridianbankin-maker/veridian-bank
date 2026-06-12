@@ -1,0 +1,26 @@
+{
+  "entity_name": "SystemMail",
+  "description": "Internal system mail log — PORTAL ONLY for admin/super-admin alerts. Email only sent to CUSTOMERS for: withdrawal, deposit, account opening, OTP.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "mail_id": { "type": "string" },
+      "mail_type": { "type": "string", "enum": ["CUSTOMER_SERVICE", "INTERNAL_ALERT"] },
+      "recipient_type": { "type": "string", "enum": ["CUSTOMER", "PORTAL_ONLY"] },
+      "recipient_email": { "type": "string" },
+      "subject": { "type": "string" },
+      "body": { "type": "string" },
+      "customer_id": { "type": "string" },
+      "account_number": { "type": "string" },
+      "transaction_id": { "type": "string" },
+      "email_sent": { "type": "boolean", "default": false },
+      "portal_only": { "type": "boolean", "default": false },
+      "metadata": { "type": "object" }
+    }
+  },
+  "email_rules": {
+    "send_email_when": ["CUSTOMER_SERVICE"],
+    "never_email": ["INTERNAL_ALERT", "admin", "super_admin"],
+    "portal_display": ["INTERNAL_ALERT", "biometric_update", "high_value_transaction", "fraud_alert", "kyc_change"]
+  }
+}
